@@ -25,5 +25,6 @@ const (
 
 func main() {
 	day := Thursday;
-	fmt.Println(day)
+	fmt.Println(day);
+	fmt.Printf("%T\n", Sunday); // print type
 }
