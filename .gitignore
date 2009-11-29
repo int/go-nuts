@@ -1,0 +1,4 @@
+# ignore object and executable files
+*.[oa]
+*.[86]
+[86].out
