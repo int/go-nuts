@@ -3,7 +3,6 @@
 package main
 
 import "big"
-import "fmt"
 
 func main() {
 	for x := 0; x < 100000; x++ {
@@ -11,6 +10,5 @@ func main() {
 		for i := 200; i < 221; i++ {
 			a.Mul(big.NewInt(int64(i + x)), a)
 		}
-		fmt.Println(a);
 	}
 }
