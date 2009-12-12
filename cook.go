@@ -11,23 +11,23 @@ package main
 import "time"
 
 type Cook struct {
-	count	int;
-	c	chan string;
+	count	int
+	c	chan string
 }
 
 func newCook() *Cook {
-	ck := new(Cook);
-	ck.c = make(chan string);
-	return ck;
+	ck := new(Cook)
+	ck.c = make(chan string)
+	return ck
 }
 
 func (ck *Cook) cook(name string, sec int64) {
-	ck.count++;
+	ck.count++
 	go func() {
-		println("cooking", name);
-		time.Sleep(sec * 1e9);
-		ck.c <- name;
-	}();
+		println("cooking", name)
+		time.Sleep(sec * 1e9)
+		ck.c <- name
+	}()
 }
 
 func (ck *Cook) wait() {
@@ -37,11 +37,11 @@ func (ck *Cook) wait() {
 }
 
 func main() {
-	ck := newCook();
-	ck.cook("coffee", 5);
-	ck.cook("tea", 3);
-	ck.cook("cake", 10);
-	ck.cook("pie", 8);
-	ck.cook("nuts", 2);
-	ck.wait();
+	ck := newCook()
+	ck.cook("coffee", 5)
+	ck.cook("tea", 3)
+	ck.cook("cake", 10)
+	ck.cook("pie", 8)
+	ck.cook("nuts", 2)
+	ck.wait()
 }

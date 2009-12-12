@@ -11,27 +11,27 @@ package main
 
 import "runtime"
 
-var parts = 2;
+var parts = 2
 
 func psum(n int) (r int64) {
-	c := make(chan int64);
+	c := make(chan int64)
 	g := func(start int, end int) {
-		var r int64;
+		var r int64
 		for i := start; i < end; i++ {
-			r += int64(i);
+			r += int64(i)
 		}
-		c <- r;
-	};
-	for i := 0; i < parts; i++ {
-		go g(i * n / parts, (i+1) * n / parts);
+		c <- r
 	}
 	for i := 0; i < parts; i++ {
-		r += <-c;
+		go g(i*n/parts, (i+1)*n/parts)
 	}
-	return r;
+	for i := 0; i < parts; i++ {
+		r += <-c
+	}
+	return r
 }
 
 func main() {
-	runtime.GOMAXPROCS(parts);
-	println(psum(1000000000));
+	runtime.GOMAXPROCS(parts)
+	println(psum(1000000000))
 }
