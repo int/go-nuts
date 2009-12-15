@@ -10,7 +10,7 @@
 " for better style, please use gofmt after done editing.
 "
 " since it just simply uses regex matches,
-" there might be some mis-autointeded corner cases.
+" there might be some mis-indented corner cases.
 " 
 
 " Only load this indent file when no other was loaded.
@@ -41,7 +41,7 @@ function! GetGoIndent()
   endif
 
   " Add a 'shiftwidth' after lines that start a block:
-  " 'case', 'default', '{'
+  " 'case', 'default', '{', '('
   let ind = indent(prevlnum)
   let prevline = getline(prevlnum)
   let midx = match(prevline, '^\s*\%(case\>\|default\>\)')
@@ -52,7 +52,7 @@ function! GetGoIndent()
     let ind = ind + &shiftwidth
   endif
 
-  " Subtract a 'shiftwidth' on 'case', 'default', '}'
+  " Subtract a 'shiftwidth' on 'case', 'default', '}', ')'.
   " This is the part that requires 'indentkeys'.
   let midx = match(getline(v:lnum), '^\s*\%(case\>\|default\>\|[)}]\)')
   if midx != -1
