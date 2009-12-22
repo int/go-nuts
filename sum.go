@@ -8,4 +8,4 @@ func sum(n int64) (r int64) {
 	return r
 }
 
-func main()	{ println(sum(1000000000)) }
+func main() { println(sum(1000000000)) }

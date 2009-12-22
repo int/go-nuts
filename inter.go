@@ -10,7 +10,7 @@ type Interface interface {
 
 type Int int
 
-func (p Int) Foo(a int) int	{ return int(p) + a }
+func (p Int) Foo(a int) int { return int(p) + a }
 
 type Struct struct {
 	Int
@@ -23,10 +23,10 @@ func (f Func) Foo(a int) int {
 	return a * 2
 }
 
-func pc(c byte)	{ println(c) }
+func pc(c byte) { println(c) }
 
 func main() {
 	s := Struct{7}
-	println((&s).Foo(8))	// value receiver works for pointer
+	println((&s).Foo(8)) // value receiver works for pointer
 	println(Func(pc).Foo(3))
 }

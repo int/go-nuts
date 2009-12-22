@@ -22,7 +22,7 @@ func main() {
 		c, err := w.Compile(s)
 		if err == nil {
 			v, e := c.Run()
-			if e == nil && v != nil {	// single expression
+			if e == nil && v != nil { // single expression
 				fmt.Println(v)
 			}
 		} else {

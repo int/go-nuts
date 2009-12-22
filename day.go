@@ -9,10 +9,10 @@ type Day int
 // it cannot be used in top-level declaration
 var dayName = []string{"Mon", "Tues", "Wednes", "Thurs", "Fri", "Satur", "Sun"}
 
-func (day Day) String() string	{ return dayName[day] + "day" }
+func (day Day) String() string { return dayName[day] + "day" }
 
 const (
-	Monday	Day	= iota
+	Monday Day = iota
 	Tuesday
 	Wednesday
 	Thursday
@@ -24,5 +24,5 @@ const (
 func main() {
 	day := Thursday
 	fmt.Println(day)
-	fmt.Printf("%T\n", Sunday)	// print type
+	fmt.Printf("%T\n", Sunday) // print type
 }

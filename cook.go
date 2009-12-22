@@ -11,8 +11,8 @@ package main
 import "time"
 
 type Cook struct {
-	count	int
-	c	chan string
+	count int
+	c     chan string
 }
 
 func newCook() *Cook {
