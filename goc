@@ -16,7 +16,7 @@ arm)
 	;;
 *)
 	echo "unknown GOARCH"
-	exit
+	exit 1
 	;;
 esac
 
