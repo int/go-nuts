@@ -52,7 +52,7 @@ func sieve(max uint32) int {
 			prime[r] = i
 			r++
 			// un-optimized version might be like:
-			// for j := i; j < max; j += i { ... }
+			// for j := i + i; j < max; j += i { ... }
 			if i > limit {
 				continue
 			}
