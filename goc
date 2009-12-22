@@ -1,0 +1,25 @@
+#!/bin/sh
+# simple script to gofmt, compile and link one go file
+# inspired by ghc --make
+# goc foo or goc foo.go
+# ./foo
+
+case $GOARCH in
+amd64)
+	a='6'
+	;;
+386)
+	a='8'
+	;;
+arm)
+	a='5'
+	;;
+*)
+	echo "unknown GOARCH"
+	exit
+	;;
+esac
+
+file=`echo $1|sed 's/\.go$//'`
+gofmt -w $file.go && ${a}g $file.go && ${a}l -o $file $file.$a
+
