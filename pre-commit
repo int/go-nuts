@@ -1,0 +1,8 @@
+#!/bin/sh
+# copy it to .git/hooks/
+s=`gofmt -l *.go`
+if [ "$s" ]; then
+	echo 'gofmt' $s
+	gofmt -w $s
+	exit 1
+fi
