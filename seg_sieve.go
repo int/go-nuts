@@ -6,17 +6,26 @@
  *
  *
  * faster than the plain sieve (by a factor of 3~4)
- * also use less (fixed) memory
+ * also uses less (fixed) memory
+ *
+ * it's eaiser to get any primes in a range.
  * and it's easier to adapt it to a paralled version
  */
 
 package main
 
-import "math"
+import (
+	"math"
+	"time"
+	"fmt"
+)
 
-var sp []int     // small primes
-var primes []int // all primes
-var pcount int   // primes count
+var (
+	sp     []int // small primes
+	primes []int // all primes
+	pcount int   // primes count
+)
+
 
 // init small primes <= limit
 func initsp(limit int) int {
@@ -97,4 +106,9 @@ func seg_sieve(start, limit int) int {
 	return r
 }
 
-func main() { seg_sieve(1, 1e9) }
+func main() {
+	t := time.Nanoseconds()
+	n := int(1e8)
+	fmt.Printf("primepi(%d): %d\n", n, seg_sieve(1, n))
+	fmt.Printf("takes %.3f seconds\n", float64(time.Nanoseconds()-t)/1e9)
+}
