@@ -96,6 +96,7 @@ func seg_sieve(start, limit int) int {
 	length := int(40000)
 	f := float64(limit - start + 8)
 	primes = make([]int, int(1.5*f/math.Log(f)+8))
+	pcount = 0
 
 	r := 0
 	for ; start+length <= limit; start += length {
